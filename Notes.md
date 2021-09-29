@@ -61,13 +61,59 @@ Aplicando o display flex, a caixa se torna flex e faz com que os elementos inter
 
 ## Terminologia
 
-### Flex container
+### Flex container, Flex item e Nesting
 
-### Flex item e Nesting
+Container significa "algo que contém", ou seja, uma caixa com elementos dentro.
+
+No caso abaixo, temos o flex container na classe "container" (quando aplicado display flex) e os flex items, na classe "item".
+
+```html
+<div class="container">
+  <div class="item">A</div>
+  <div class="item">B</div>
+  <div class="item">C</div>
+</div>
+```
+
+O conceito de **nesting** é de que elementos vivem dentro de outro elemento.
 
 ### Eixo principal e cruzado
 
+Flexbox também tem eixos (axis), que são chamados de main (principal) e cross (cruzado), sendo start o começo e end o final.
+
+Isso significa que ao utilizar um elemento com `display: flex;`, eu posso mudar o comportamento do eixo principal com o cruzado, utilizando, por exemplo, `flex-direction: column` no lugar de "row".
+
+Posso também alinhar o conteúdo utilizando `justify-content: flex-end`.
+
 ### Flex sizing
+
+Significa o item ser flexível, ou seja, vai alterar a largura e a altura dos itens para que haja um preenchimento dos espaços do flex container.
+
+Utilizar flex-sizing com `flex: 1`: preenche os espaços do container, ajustando completamente a largura e altura dos elementos conforme a tela do usuário.
+
+[Ver exemplo](https://codepen.io/frontangie/pen/NWgoVJK)
+
+```HTML
+<div class="container">
+  <div class="item">A</div>
+  <div class="item">B</div>
+  <div class="item">C</div>
+</div>
+```
+
+```CSS
+.container {
+  display: flex;
+  border: 1px solid red;
+  height: 80vh;
+}
+
+.item {
+  background-color: gray;
+  border: 1px solid;
+  flex: 1;
+}
+```
 
 ## Propriedades do Flex Container
 
