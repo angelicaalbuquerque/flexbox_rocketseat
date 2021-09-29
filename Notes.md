@@ -117,19 +117,150 @@ Utilizar flex-sizing com `flex: 1`: preenche os espaços do container, ajustando
 
 ## Propriedades do Flex Container
 
-### Propriedades do Flex Container
+Temos agora as seguintes possibilidades adicionadas ao flex container, ao defini-lo como `display: flex`:
+
+- Direção dos itens;
+- Multilinhas;
+- Alinhamento principal e cruzado;
+- Espaços entre os itens.
 
 ### Direção dos itens
 
-### Multiplas linhas
+Flex é uma dimensão somente, ou vai inserir os itens na horizontal ou na vertical.
+
+Podemos mudar a direção com `flex-direction`, tendo os seguintes valores:
+
+- row (linha) | row-reverse (linha reversa) | column (coluna) | column-reverse (coluna reversa)
+
+No exemplo abaixo, aplicando `flex-direction: row-reverse`, mudo a leitura dos itens de A-B-C para C-B-A:
+
+```HTML
+<div class="container">
+  <div class="item">A</div>
+  <div class="item">B</div>
+  <div class="item">C</div>
+</div>
+```
+
+```CSS
+.container {
+  display: flex;
+  border: 1px solid red;
+  height: 80vh;
+  flex-direction: row-reverse;
+}
+```
+
+É importante lembrar que toda vez que é aplicado o flex-direction qualquer outra propriedade aplicada também será impactada.
+
+### Múltiplas linhas
+
+`flex-wrap` é a capacidade de usar multilinhas. Cada nova linha é um novo eixo sendo criado, como novo flex container.
+
+Se tiver o tamanho suficiente para o conteudo ser exibido, essas linhas não é criada. Mas se não tiver, acontece essa "quebra de linha", resultando na criação de mais uma.
+
+```HTML
+<div class="box">
+  <div class="item">A</div>
+  <div class="item">B</div>
+  <div class="item">C</div>
+  <div class="item">D</div>
+</div>
+```
+
+```CSS
+.box {
+  display: flex;
+  flex-wrap: wrap;
+
+  border: 1px dashed red;
+}
+
+.box div {
+  border: 1px solid;
+  width: 80px;
+}
+```
+
+Se eu aplicar flex-wrap: reverse, o encaixe é feito na tela de maneira reversa, como D C B A.
 
 ### Direção e multi linha em uma única propriedade
 
+`flex-flow` é um shorthand, uma maneira curta de escrever as propriedades `flex-direction` e `flex-wrap`.
+
+```CSS
+.box {
+  display: flex;
+  flex-flow: column wrap;
+
+  border: 1px dashed red;
+}
+
+.box div {
+  border: 1px solid;
+  width: 80px;
+}
+```
+
 ### Alinhamento dos itens no eixo principal
+
+#### justify-content
+
+- Alinhamento dos elementos dentro do container;
+- Distribuição dos elementos.
+
+**valores**:
+
+- flex-start;
+- flex-end;
+- space-around (espaço por igual ao redor);
+- space-between (espaço por igual entre eles);
+- space-evenly (espaço por igual em cada um deles, desde o começo ao final).
 
 ### Alinhamento dos itens no eixo cruzado
 
+#### align-items
+
+- Alinhamento dos elementos no eixo cruzado.
+
+**valores**:
+
+- stretch (padrão);
+- flex-start;
+- flex-end;
+- center.
+
 ### Espaço entre os elementos
+
+A propriedade `gap` nos permite colocar espaços [somente] entre os elementos.
+
+Seus valores são unidades de medidas:
+
+- fixas: px, pt;
+- flexives: %, em, rem.
+
+```HTML
+<div class="box">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+</div>
+```
+
+```CSS
+.box {
+  border: 1px dashed red;
+
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+.box div {
+  border: 1px solid;
+}
+```
 
 ## Propriedades para os itens
 
