@@ -264,19 +264,139 @@ Seus valores são unidades de medidas:
 
 ## Propriedades para os itens
 
-### Propriedades para os itens
+- flex-basis (serve para mudar o tamanho do item);
+- flex-grow (adapta e faz o item crescer automaticamente);
+- flex-shrink (faz o item encurtar/comprimir ou ficar menor, dependendo do tamanho da caixa);
+- flex (shorthand para os tres acima);
+- order (como ordenar elementos).
 
 ### Largura e altura dos itens com flex-basis
 
+Por padrão, o flex-basis é auto, ou seja, pega o tamanho dos elementos e deixa automático. Eu posso, por exemplo, em vez de utilizar `width: 25px` para definir a largura, posso fazer essa definição via `flex-basis: 25px`.
+
+Agora, perceba que se eu quiser pegar um elemento só e aplicar a largura de 2500px, não consigo porque o flex-basis já faz o controle com 15%. Só funcionaria se eu deixasse como auto o flex-basis.
+
+```HTML
+<div class="box">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+</div>
+```
+
+```CSS
+.box {
+  border: 1px dashed red;
+
+  display: flex;
+}
+
+.box div {
+  border: 1px solid;
+  flex-basis: 15%;
+}
+
+.box div:nth-child(1) {
+  width: 2500px;
+}
+```
+
+Ponto de atenção: se mudar a direção para coluna, o fle-basis não signifca mais a largura, significa se eu colocar 50px a caixa vai aumentar de altura e se eu quiser usar 400px no primeiro filho, não vou conseguir pois o flex-basis já tomou pra si essa responsabilidade de aplicar 50px (a não ser que eu deixe auto):
+
+```HTML
+<div class="box">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+</div>
+```
+
+```CSS
+.box {
+  border: 1px dashed red;
+
+  display: flex;
+}
+
+.box div {
+  border: 1px solid;
+  flex-basis: 50px;
+}
+
+.box div:nth-child(1) {
+  width: 25px;
+  height: 400px;
+}
+```
+
 ### Crescimento e adaptação dos itens
+
+`flex-grow` é o crescimento do item dentro do container em relação aos espaços vazios.
+
+Por exemplo, se eu quiser que o item C tome conta de todo o espaço vazio, faço da seguinte forma:
+
+```HTML
+<div class="box">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+</div>
+```
+
+```CSS
+.box {
+  border: 1px dashed red;
+
+  display: flex;
+}
+
+.box div {
+  border: 1px solid;
+}
+
+.box div:nth-child(3) {
+  flex-grow: 1;
+}
+```
+
+Esse "1" significa "pega todo o espaço e aplique o alongamento". Mas se eu aplicar a outro elemento, ao elemento C, por exemplo, esse "1"/esse espaço vazio é dividido um pedaço para um e um pedaço para outro.
+
+Ou seja, a distribuição é feita conforme os elementos que estamos aplicando.
 
 ### Encolhimento e encaixe dos elementos
 
+`flex-shrink` é a capacidade do item encolher dentro do container.
+
+Se eu coloco o `flex-shrink: 0`, significa que eu não quero que o elemento seja encurtado mais.
+
 ### Shorthand flex
+
+A propriedade `flex` é um atalho para:
+
+- flex-grow;
+- flex-shrink;
+- flex-basis.
+
+Ela pode receber 1, 2 ou 3 valores (na ordem acima), como no [exemplo](https://codepen.io/frontangie/pen/dyRrbBK).
 
 ### Alterando tamanho de múltiplos itens
 
+Aplicação da propriedade flex, vista acima, em diversos elementos.
+
+Código [aqui](https://codepen.io/frontangie/pen/JjJzjGL), que prova que o flex-basis dá mais força às caixas. Se não existe basis, podemos trabalhar com as adaptações (grow e shrink).
+
 ### Ordenando itens
+
+Por padrão, "order" é 0. Mas se mudamos essa ordem, por exemplo, para "1", como é maior que 0 esse elemento vai para o final da lista.
+
+Podemos usar também números negativos. No exemplo abaixo, o "D" que era o 4º item vai para a primeira posição por receber "-1".
+
+Detalhe: muda visualmente, mas não estruturalmente (no código).
+
+[Exemplo](https://codepen.io/frontangie/pen/zYzbYKP?editors=1100).
 
 ## Desafios
 
@@ -284,7 +404,7 @@ Seus valores são unidades de medidas:
 
 ### Layout com 2 colunas
 
-### 9 fotos 3 colunas
+### 9 fotos, 3 colunas
 
 ### Imagem dentro de um botão
 
