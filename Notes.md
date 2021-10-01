@@ -402,10 +402,41 @@ Detalhe: muda visualmente, mas não estruturalmente (no código).
 
 ### Header menu navigation
 
+- Crie o `<header>` de um site que contenha uma logo e um menu.
+- Um elemento deverá ficar ao lado do outro.
+- A logo que ficará na extrema esquerda e o menu na extrema direita.
+- Os itens do menu ficarão um ao lado do outro, com um espaço de .8rem entre eles.
+- O último elemento do menu será um botão de contato e você poderá utilizar o seletor `:last-child` para estilizar.
+
+[Ver o exercício aqui](https://codepen.io/frontangie/pen/GRELqaK?editors=1100).
+
 ### Layout com 2 colunas
+
+- Crie um layout com 2 colunas, uma ao lado da outra.
+- A coluna da esquerda deverá ter 25% de tamanho e a coluna da direita deverá ocupar todo o espaço que sobra.
+- Faça uma separação de 1rem entre os elementos.
+
+[Ver o exercício aqui](https://codepen.io/frontangie/pen/eYRozqy?editors=1100).
 
 ### 9 fotos, 3 colunas
 
+- Crie uma galeria de fotos onde teremos 3 colunas e 9 fotos.
+- Deixe um espaço de .8rem entre os elementos da galeria.
+
+[Ver o exercício aqui](https://codepen.io/frontangie/pen/PojgGZZ?editors=1100).
+
 ### Imagem dentro de um botão
 
+- Crie um botão que contenha um ícone (img) e um texto.
+- Coloeque um espaço de .4rem entre os elementos.
+
+[Ver o exercício aqui](https://codepen.io/frontangie/pen/VwWNKmo).
+
 ### Footer
+
+- Crie o `<footer>` de um site que contenha a data de criação do site.
+- Usando flex, alinhe o elemento do footer bem ao meio.
+- Deixe uma altura de 8rem para o footer.
+- O footer deverá ficar no final da página.
+
+[Ver o exercício aqui](https://codepen.io/frontangie/pen/KKqYgqy?editors=1100).
